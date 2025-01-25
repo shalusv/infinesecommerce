@@ -1,0 +1,97 @@
+:root {
+  /* header */
+  --header-container-padding: 10px;
+  --header-container-bg-color: transparent;
+  --header-container-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --header-padding: 10px;
+
+  /* background colors */
+
+  --header-bg-color: #fff;
+  --header-bg-color-small: #fff;
+  --logo-bg-color: #fff;
+  --logo-bg-color-mobile: rgba(0, 0, 0, 0.7);
+
+  --navigation-bg-color: var(--primary-color);
+  --nav-links-bg-color: var(--primary-color);
+  --nav-links-bg-color-hover: var(--primary-color);
+  --nav-bg-color-mobile: var(--primary-color);
+  --footer-bg-color: var(--primary-color);
+
+  --bg-nav-link-active: var(--primary-color);
+
+  --header-border-radius: 10px;
+  --navbar-offset: 5px;
+
+  /* Colors */
+  --footer-copyright-color: #cbc0c0;
+  --footer-title-color: #06defa;
+  --nav-links-color: white;
+  --nav-link-color-hover: #ccc;
+  --nav-link-color-active: #b3a5a5a9;
+  --nav-link-color-border: rgb(1, 255, 2550);
+  --nav-links-color-border-hover: none;
+  --button-border-color: var(--primary-color);
+  --email-color: #ca320c;
+  --call-color: var(--secondary-color);
+  --whastsapp-color: #00d96d;
+  --insta-color: var(--primary-color);
+
+  /* Border Sizes */
+  --nav-links-br: 20px;
+
+  /* Radiuses */
+  --button-radius: 20px;
+
+  /* Border Colors */
+  --border-seperator: 0.01rem solid rgba(218, 203, 203, 0.2);
+
+  /* Shadows */
+  --shadow-dark: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-nav: 0 0px 10px rgba(255, 255, 255, 0.2);
+  --shadow-dark-bottom: 0 2px 4px rgba(255, 255, 255, 0.2);
+  --header-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  --shadow-navigation: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  --shadow-nav-links: 0 6px 10px rgba(0, 0, 0, 0.3);
+  --shadow-nav-link: 0 0px 10px rgba(0, 0, 0, 0.3);
+  --shadow-nav-link-hover: 0 5px 8px rgba(253, 255, 253, 0.2);
+  --shadow-nav-link-active: 0 0px 8px rgba(255, 255, 255, 0.2);
+  --shadow-right: 20px -10px 15px rgba(0, 0, 0, 0.1);
+  --footer-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+  --shadow-button: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  --shadow-call-button: 0px 0px 10px rgba(255, 251, 251, 0.4);
+
+  /* Width */
+  --navigation-mobile-width: 300px;
+  --navigation-mobile-width-small: 250px;
+  --navigation-mobile-left: calc(var(--navigation-mobile-width) / 2);
+  --navigation-mobile-left-small: calc(
+    var(--navigation-mobile-width-small) / 2
+  );
+
+  /* height */
+  --header-mobile-height: 100px;
+  --navigation-mobile-height: 320px;
+}
+
+body {
+  background: var(--primary-color);
+}
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; /* Ensure it takes at least full viewport height */
+  /* background-color: #f8f9fa; Light background color */
+  background: var(--primary-color);
+  background-color: #fff;
+}
+.company-name {
+  color: var(--primary-color);
+  letter-spacing: 0.02rem;
+}
+.company-name:hover {
+  /* transform: scale(1.55); */
+  cursor: pointer;
+}

@@ -1,0 +1,77 @@
+/* src/assets/styles/root.css */
+
+/* Color Palette */
+:root {
+  --primary-color: #0f75bc;
+  --primary-color-dark: #067da9;
+  --secondary-color: #00aeef;
+  --secondary-color-dark: #0098cf;
+  --primary-color-rgb: 5, 117, 188;
+  --secondary-color-rgb: 0, 174, 239;
+
+  --shadow-dark: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --shadow-dark-extra: 0 0px 10px rgba(0, 0, 0, 0.5);
+  --shadow-light: 0 4px 10px rgba(255, 255, 255, 0.1);
+  --shadow-primary: 0 4px 20px rgba(var(--primary-color-rgb), 0.1);
+
+  --bg-color-primary: var(--primary-color);
+  --bg-color-secondary: var(--secondary-color);
+  --bg-color: #fff;
+  --bg-color-active: #fff;
+  --bg-link-color: var(--primary-color);
+  --bg-link-hover: var(--secondary-color);
+
+  --text-color: #333333;
+
+  --link-color-primary: var(--primary-color);
+  --link-color-secondary: var(--secondary-color);
+  --link-color: #fff;
+  --link-color-hover: #b9b9b9;
+  --link-color-active: var(--primary-color);
+
+  --link-hover-color: var(--primary-color-dark);
+
+  /* borders */
+  --mobile-menu-top-border: rgba(5, 117, 188, 0.1);
+}
+
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  font-family: "Roboto", sans-serif; /* Base font family */
+  font-size: 16px; /* Base font size */
+  line-height: 1.5; /* Line height */
+  color: var(--text-color); /* Default text color */
+  background-color: var(--background-color); /* Background color */
+}
+
+/* Global Link Styles */
+a {
+  color: var(--link-color); /* Link color */
+  text-decoration: none; /* No underline */
+}
+
+a:hover {
+  color: var(--link-hover-color); /* Link hover color */
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+/* Add other utility classes as needed */

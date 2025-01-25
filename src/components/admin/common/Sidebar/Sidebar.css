@@ -1,0 +1,175 @@
+.sidebar {
+  width: var(--w-sidebar-container);
+  height: calc(100vh - var(--h-header-dashboard));
+  overflow-y: auto;
+  color: white;
+  direction: rtl; /* Make the scrollbar appear on the left */
+  display: flex;
+  justify-content: flex-end;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: var(--w-sidebar-container-collapsed);
+}
+
+.menu {
+  list-style: none;
+  width: 200px;
+  height: 100%;
+  transition: width 0.2s ease;
+}
+
+.sidebar.collapsed .menu {
+  width: var(--w-sidebar-mobile);
+}
+
+.menu-item {
+  padding: 15px;
+  cursor: pointer;
+  display: flex; /* Display icon and text in a row */
+  align-items: center; /* Vertically align the icon and text */
+  position: relative; /* To position the submenu */
+  box-shadow: 0 0px 2px var(--border-color-li);
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  width: 100%; /* Ensure the anchor tag takes full width */
+  flex-direction: row-reverse;
+  position: relative;
+}
+
+.menu-item a .submenu-icon {
+  position: absolute;
+  z-index: 1100;
+  left: 98%;
+  top: 0;
+}
+
+.sidebar.collapsed .menu-item a {
+  justify-content: center;
+}
+
+.menu-item a .icon {
+  margin-right: 10px; /* Space between icon and text */
+  width: 15px;
+  height: 15px;
+}
+
+.sidebar.collapsed .menu-item a .icon {
+  margin-right: 0;
+}
+
+.menu-item a .sidebar-link-text {
+  font-size: 15px;
+  line-height: 15px;
+  display: block;
+  transition: display 0.5s ease;
+}
+
+.sidebar.collapsed .menu-item a > .sidebar-link-text {
+  display: none;
+}
+
+.menu-item:hover {
+  background-color: #34495e;
+}
+
+.menu-item:hover .submenu-icon {
+  transform: rotate(-90deg);
+}
+
+/* Highlight active menu item */
+.menu-item.active {
+  background-color: var(--sidebar-link-active-bg);
+  color: #1abc9c;
+}
+
+.menu-item.active > a {
+  color: var(--sidebar-link-active); /* Change text color for active link */
+}
+
+/* Optional: Adjust hover styles for better UX */
+.menu-item:hover {
+  background-color: var(--primary-color); /* Hover color for menu and submenu */
+}
+
+.menu-item:hover a {
+  color: var(--sidebar-link-hover);
+}
+
+.menu-item:hover .submenu {
+  display: block; /* Show submenu when parent is hovered */
+}
+
+.submenu {
+  display: none;
+  background-color: #34495e;
+  padding-left: 20px;
+  position: absolute;
+  left: calc(100%);
+  height: auto;
+  top: -10px;
+  width: var(--w-sidebar-submenu);
+  padding: 10px 0px 10px 10px;
+  border-radius: 0px 10px 10px 0px;
+  list-style: none;
+  direction: rtl;
+}
+
+.submenu li {
+  padding: 5px;
+  background-color: var(--sidebar-link-bg);
+  margin-right: 5px;
+}
+/* Remove bottom border for the last item */
+
+.submenu li:not(:last-child) {
+  box-shadow: 0 0px 1px var(--border-color-li);
+}
+
+.submenu a {
+  color: #ecf0f1;
+  padding: 10px;
+}
+
+.sidebar.collapsed .submenu-item a {
+  justify-content: left;
+}
+
+.sidebar.collapsed .submenu-item a > .sidebar-link-text {
+  display: block;
+}
+
+.submenu-item.active {
+  background-color: var(--sidebar-link-active-bg);
+}
+
+.submenu-item.active a {
+  color: var(--primary-color);
+}
+
+.submenu-item:hover a {
+  color: var(--sidebar-link-hover);
+}
+
+.submenu-item:hover {
+  background-color: var(--primary-color); /* Hover color for menu and submenu */
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 5px; /* Adjust the scrollbar width */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--link-hover-color);
+  border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #013452;
+}

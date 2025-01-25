@@ -1,0 +1,32 @@
+/* src/components/admin/CommonDashboardLayout/CommonDashbaordlayout.css */
+.admin-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--admin-primary-color); /* Admin primary color */
+}
+
+.admin-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  height: calc(
+    100vh - var(--h-header-dashboard)
+  ); /* Adjusted height for header */
+}
+
+.admin-main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f5f5f5;
+  margin-left: calc(
+    0px - var(--w-sidebar-submenu)
+  ); /* Adjust margin based on sidebar width */
+}
+
+.admin-main-content.collapsed {
+  margin-left: calc(
+    0px - var(--w-sidebar-submenu) - var(--w-sidebar-submenu-mobile)
+  ); /* When sidebar is collapsed */
+}

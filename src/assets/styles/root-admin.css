@@ -1,0 +1,59 @@
+/* src/assets/styles/root.css */
+
+/* Color Palette */
+:root {
+  --admin-primary-color: #34495e;
+  --border-color-li: #302e2e;
+
+  --h-header-dashboard: 80px;
+  --h-header-dashboard-mobile: 60px;
+
+  /* width */
+  --w-sidebar-container: 355px;
+  --w-sidebar-container-collapsed: 205px;
+  --w-sidebar: 200px;
+  --w-sidebar-mobile: 50px;
+  --w-sidebar-submenu: 150px;
+  --w-sidebar-submenu-mobile: 80px;
+
+  /* Font Size */
+  --fs-link: 18px;
+  --fs-link-icon: 20px;
+  --fs-link-mobile: 18px;
+  --fs-link-icon-mobile: 20px;
+
+  /* padding */
+  --pad-sidebar: 10px;
+  --pad-sidebar-mobile: 10px;
+
+  /* Color  */
+
+  --sidebar-link: #fff;
+  --sidebar-link-active: var(--primary-color);
+  --sidebar-link-hover: #c1c1c5;
+
+  /* background Color  */
+
+  --sidebar-link-bg: var(--admin-primary-color);
+  --sidebar-link-active-bg: #1a1919;
+  --sidebar-link-hover-bg: #c1c1c5;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #e4e7e9;
+  border-radius: 4px;
+  /* background-color: #f6f7f8; */
+  color: rgb(46, 45, 45);
+}
+
+.important-star {
+  color: red;
+  position: relative;
+  top: 0px;
+  left: 0;
+}

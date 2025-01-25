@@ -1,0 +1,3 @@
+questions
+My questions about the stpes
+3. Using Context for User Authentication and Permissions, is it safe and hackprrof,
