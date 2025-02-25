@@ -1,71 +1,295 @@
+/* General Header Styling */
 .header-dashboard {
+  background: #2c3e50;
+  padding: 0;
+  min-height: 80px;
+}
+
+/* Top Header Layout */
+.top-header {
   display: flex;
+  flex-wrap: wrap; /* Allows middle-section to wrap when needed */
   align-items: center;
   justify-content: space-between;
-  background-color: #34495e;
-  color: white;
-  padding: 15px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  height: var(--h-header-dashboard);
-  box-shadow: var(--shadow-dark);
+  width: 100%;
+  height: 100%;
 }
 
-.sidebar-toggle-btn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
-}
-
-.sidebar-toggle-btn.collapsed {
-  color: var(--secondary-color);
-}
-
-.header-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.header-actions {
+/* Sections Styling */
+.left-section,
+.middle-section,
+.right-section {
+  padding: 5px;
+  text-align: center;
   display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  min-height: calc(60px);
+}
+
+/* Default Layout: Desktop (>768px) */
+.left-section {
+  width: 25%;
+}
+
+.middle-section {
+  /* background: #3498db; */
+  flex-grow: 1;
+}
+
+.right-section {
+  width: 20%;
+  /* background: #f39d1213; */
+}
+
+/* Containers inside each section */
+.logo-admin-container,
+.searchbar-container,
+.profile-container {
+  width: 100%;
+  padding: 0px;
+  display: flex;
+  /* background: rgba(255, 255, 255, 0.2); */
+  border-radius: 5px;
+  min-height: 50px;
+  align-items: center;
+  padding: 0;
+}
+
+/* Background Colors */
+
+/* ***** Left Section  */
+.logo-admin-container {
+  display: flex;
+  align-items: center;
   gap: 10px;
 }
 
-.header-btn {
-  background-color: #1abc9c;
+/* Menu Button */
+.menu-toggle {
+  background: none;
   border: none;
   color: white;
-  padding: 10px 15px;
+  font-size: 20px;
   cursor: pointer;
-  border-radius: 4px;
-}
-
-.header-btn:hover {
-  background-color: #16a085;
-}
-
-.rounded-link-button {
-  padding: 5px;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #fff;
-  background-color: var(--primary-color);
-  text-decoration: none;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s, transform 0.2s;
-  width: 30px;
-  height: 30px;
+  padding: 5px 10px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.rounded-link-button:hover {
-  background-color: var(--secondary-color); /* Replace with hover color */
-  transform: translateY(-3px);
+/* Logo Section */
+.logo-admin {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+}
+
+/* Logo Image */
+.logo-admin-image {
+  height: 40px;
+  width: auto;
+}
+
+/* Logo Text */
+.logo-admin-text {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: relative;
+  top: 15px;
+  left: -15px;
+}
+
+/* Company Name */
+.logo-admin-title {
+  font-weight: bold;
+  font-size: 18px;
+  /* text-transform: uppercase; */
+  color: var(--logo-admin-title-color);
+}
+
+/* Special Styling for 'S' */
+.logo-admin-subtitle {
+  color: var(--logo-admin-subtitle-color);
+}
+
+/* Tagline */
+.logo-admin-tagline {
+  font-size: 10px;
+  background-image: linear-gradient(
+    90deg,
+    rgba(213, 108, 80, 1) 0%,
+    rgba(5, 100, 119, 1) 57%
+  );
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  position: relative;
+  top: -5px;
+  left: 0px;
+}
+/* ------------------------ */
+
+/* ******* Middle Section */
+.searchbar-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Wrapper to keep input & button together */
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  overflow: hidden; /* Ensures a clean cut between input & button */
+  width: 100%;
+}
+
+/* Search Input */
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Remove right border to merge with button */
+.search-input {
+  border-right: none;
+}
+
+/* Placeholder Styling */
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Search Button */
+.search-btn {
+  background: var(--primary-color);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Hover Effect */
+.search-btn:hover {
+  background: var(--secondary-color);
+}
+
+/* Search Results Dropdown */
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 5px 5px;
+  overflow: hidden;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.search-result-item {
+  padding: 10px;
+  cursor: pointer;
+  color: #333;
+  transition: background 0.2s;
+}
+
+.search-result-item:hover {
+  background: #f1f1f1;
+}
+
+/* Adjust search wrapper for positioning */
+.searchbar-container {
+  position: relative;
+  width: 100%;
+}
+
+/* --------------------------- */
+
+/* ******* Right Section */
+.profile-container {
+  background: rgba(102, 102, 102, 0.2);
+  justify-content: right;
+  padding: 10px 20px;
+}
+
+/* --------------------------- */
+
+/* Responsive: Move Middle Section to Second Row & Equalize Left & Right */
+@media (max-width: 768px) {
+  .top-header {
+    flex-wrap: wrap;
+  }
+
+  .left-section,
+  .right-section {
+    width: 50%; /* Equal width for small screens */
+    text-align: center;
+  }
+
+  .middle-section {
+    width: 100%; /* Takes full width */
+    order: 1; /* Moves to second row */
+  }
+}
+
+/* Responsive Left Section */
+@media (max-width: 768px) {
+  .logo-admin {
+    gap: 5px;
+  }
+
+  .logo-admin-image {
+    height: 30px;
+  }
+
+  .logo-admin-title {
+    font-size: 16px;
+  }
+
+  .logo-admin-subtitle {
+    font-size: 16px;
+  }
+
+  .logo-admin-tagline {
+    font-size: 10px;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .middle-section {
+    width: 100%;
+    order: 1;
+  }
+}
+
+@media (max-width: 650px) {
+  .searchbar-container {
+    max-width: 100%;
+  }
 }

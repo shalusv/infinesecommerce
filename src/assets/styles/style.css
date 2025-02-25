@@ -1,5 +1,12 @@
 :root {
   /* header */
+  --primary-color: #0f75bc;
+  --primary-color-dark: #067da9;
+  --secondary-color: #00aeef;
+  --secondary-color-dark: #0098cf;
+  --primary-color-rgb: 5, 117, 188;
+  --secondary-color-rgb: 0, 174, 239;
+
   --header-container-padding: 10px;
   --header-container-bg-color: transparent;
   --header-container-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -36,6 +43,10 @@
   --call-color: var(--secondary-color);
   --whastsapp-color: #00d96d;
   --insta-color: var(--primary-color);
+
+  --btn-color-edit: #7a7b7c;
+  --btn-color-view: #056ec4;
+  --btn-color-delete: #a50606;
 
   /* Border Sizes */
   --nav-links-br: 20px;

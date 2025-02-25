@@ -1,0 +1,11 @@
+hi, let me start from scratch,
+i need a datable to display my datas in table like strucutr,
+i need the table appear it as my requirement taht is mentioned below,
+1- the table should be responsive,
+2- may be in some cas e as screen becomes smaller some column field should move into the exapnded section which has table strucutre to accomodate the extra comns,
+3- main row should contains the comun according to my specification, that is G768=true,L768=true,L650=false,L550=false,L450=false measns the comun willbe in the main row for >768px and <768px but moved to expandeble table whne viewport is <650px,<550px,<450p[c],
+4- the expansion and collapse of each row must look like an accordion,
+5-the column visble on the main should be srtbale except action hutton which containi edit adn delete and expand button(as only icons)
+now use #,Permisison Name,created, status, description as columns,
+fiels names you can use DevPermission.jsx,DevPermission.css
+i am developing this in the react js

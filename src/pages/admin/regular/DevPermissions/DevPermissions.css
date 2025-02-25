@@ -1,0 +1,11 @@
+/* If `DevPermission.css` had table styles, remove them.
+   You only need styles for the page itself. */
+
+.dev-permission-container {
+  padding: 20px;
+}
+
+.dev-permission-container h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}

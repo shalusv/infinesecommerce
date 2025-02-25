@@ -1,0 +1,53 @@
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.permission-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.permission-table th,
+.permission-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.permission-table th {
+  background-color: #f4f4f4;
+  cursor: pointer;
+}
+
+.permission-table th:hover {
+  background-color: #ddd;
+}
+
+.icon-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin: 0 5px;
+}
+
+.icon-btn.edit {
+  color: blue;
+}
+.icon-btn.delete {
+  color: red;
+}
+.icon-btn.expand {
+  color: black;
+}
+
+.expand-row {
+  background-color: #f9f9f9;
+}
+
+.expand-content {
+  padding: 10px;
+  background-color: #eef;
+  border: 1px solid #ddd;
+}

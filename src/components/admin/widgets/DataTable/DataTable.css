@@ -1,0 +1,106 @@
+.table-container {
+  width: 100%;
+  padding: 10px;
+  overflow-x: hidden; /* ✅ Strictly remove horizontal scrolling */
+}
+
+.datatable-search-input {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.datatable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  table-layout: auto; /* ✅ Allows ID column to adjust naturally */
+}
+
+.datatable th,
+.datatable td {
+  border: 1px solid #ddd;
+  padding: 5px 8px; /* ✅ Slight padding */
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.datatable th {
+  background-color: #f4f4f4;
+  cursor: pointer;
+}
+
+.datatable th:hover {
+  background-color: #ddd;
+}
+
+/* ✅ Allow ID column to adjust based on content */
+.datatable td:first-child {
+  min-width: 40px; /* Ensures enough space for numbers */
+  max-width: 80px; /* Prevents it from being too wide */
+  text-align: center;
+}
+
+/* ✅ Fixed width for Actions column */
+.actions-col {
+  width: 50px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.icon-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.75rem;
+  margin: 0 3px;
+  display: inline-block;
+}
+
+.icon-btn.edit {
+  color: blue;
+}
+.icon-btn.delete {
+  color: red;
+}
+.icon-btn.expand {
+  color: black;
+}
+
+.row-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.row-link:hover {
+  text-decoration: underline;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6px;
+  font-size: 0.8rem;
+}
+
+.pagination button {
+  padding: 3px 5px;
+  margin: 0 2px;
+  border: 1px solid #ddd;
+  background-color: #f4f4f4;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

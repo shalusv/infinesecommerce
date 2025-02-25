@@ -11,6 +11,9 @@ import AdminLogin from "./pages/admin/common/LoginAdmin/LoginAdmin"; // Import A
 import "./App.css";
 import "./assets/styles/style.css";
 import "./assets/styles/root.css";
+import DevPermissions from "./pages/admin/regular/DevPermissions/DevPermissions";
+import DevStyles from "./pages/admin/regular/DevStyles/DevStyles";
+import SearchDashboard from "./pages/admin/common/SearchDashboard/SearchDashboard";
 
 const App = () => {
   return (
@@ -28,9 +31,23 @@ const App = () => {
               <ProtectedRoute requiredPermissions={["VIEW_DASHBOARD"]}>
                 <CommonDashboardLayout>
                   <Routes>
+                    <Route
+                      path="search-results"
+                      element={<SearchDashboard />}
+                    />
+
                     <Route path="/" element={<HomeDashboard />} />
                     <Route path="users/list" element={<DashboardList />} />
                     <Route path="unauthorized" element={<UnauthorizedPage />} />
+                    <Route
+                      path="dev-settings/permissions"
+                      element={<DevPermissions />}
+                    />
+                    <Route path="dev-settings/styles" element={<DevStyles />} />
+                    <Route
+                      path="/admin/dev-settings/[preferences]"
+                      element={<UnauthorizedPage />}
+                    />
                   </Routes>
                 </CommonDashboardLayout>
               </ProtectedRoute>

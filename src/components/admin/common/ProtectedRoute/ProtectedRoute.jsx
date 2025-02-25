@@ -7,7 +7,8 @@ const ProtectedRoute = ({ requiredPermissions, children }) => {
   const { isAuthenticated, currentUser } = useContext(AuthContext);
 
   // Fallback: Retrieve user data from localStorage if context is lost
-  const storedUser = JSON.parse(localStorage.getItem("authUser"));
+  const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+
   const isLoggedIn = isAuthenticated || storedUser !== null;
   const user = currentUser || storedUser;
 

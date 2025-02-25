@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "../../../../context/AuthContext"; // Import AuthContext
 import { useNavigate } from "react-router-dom";
-import { users } from "../../../../datas/DataUsers"; // Import the user data
 import "./LoginAdmin.css";
 
 const LoginAdmin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const { login } = useContext(AuthContext); // Use login from AuthContext
   const navigate = useNavigate(); // Hook for navigation
 
   const handleSubmit = (e) => {
@@ -18,17 +19,11 @@ const LoginAdmin = () => {
       return;
     }
 
-    // Check credentials
-    const foundUser = users.find(
-      (user) => user.username === email && user.password === password
-    );
+    // Use login function from AuthContext
+    const loginSuccess = login(email, password);
 
-    if (foundUser) {
-      // Set user details and permissions in localStorage/sessionStorage
-      localStorage.setItem("authUser", JSON.stringify(foundUser));
-      sessionStorage.setItem("sessionAuth", JSON.stringify(foundUser));
-
-      // Navigate to the admin dashboard
+    if (loginSuccess) {
+      // Navigate to the admin dashboard if login is successful
       navigate("/admin/");
     } else {
       setError("Invalid username or password.");
@@ -38,7 +33,7 @@ const LoginAdmin = () => {
   return (
     <div className="login-container">
       <div className="login-card">
-        <h2 className="login-title">Admins Login</h2>
+        <h2 className="login-title">Admin Login</h2>
         {error && <p className="error-message">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="input-group">
