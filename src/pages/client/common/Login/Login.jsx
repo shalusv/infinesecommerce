@@ -8,8 +8,8 @@ const Login = () => {
       <h1>Login Page</h1>
       <p>Please click the button below to go to the admin dashboard.</p>
       {/* Button to go to admin */}
-      <Link to="/admin/login">
-        <button>Goto Admin Login</button>
+      <Link to="/admin">
+        <button>Goto Admin</button>
       </Link>
     </div>
   );

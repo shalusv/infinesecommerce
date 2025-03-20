@@ -18,6 +18,9 @@ export const users = [
       "VIEW_DEV_PERMISSION",
       "ADD_USER",
       "LIST_USER",
+      "VIEW_EMPLOYEES",
+      "ADD_EMPLOYEE",
+      "LIST_EMPLOYEE",
     ],
   },
   {

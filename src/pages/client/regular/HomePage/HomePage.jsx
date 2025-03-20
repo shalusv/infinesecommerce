@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <div>
       <h1>Welcome to the Home Page</h1>
-      <Link to="/login">
+      <Link to="/admin">
         <button>Login Here</button>
       </Link>
     </div>

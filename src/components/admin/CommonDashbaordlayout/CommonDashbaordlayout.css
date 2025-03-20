@@ -20,9 +20,7 @@
   padding: 20px;
   overflow-y: auto;
   background-color: #f5f5f5;
-  margin-left: calc(
-    0px - var(--w-sidebar-submenu)
-  ); /* Adjust margin based on sidebar width */
+  /* margin-left: 0px; */
 }
 
 .admin-main-content.collapsed {

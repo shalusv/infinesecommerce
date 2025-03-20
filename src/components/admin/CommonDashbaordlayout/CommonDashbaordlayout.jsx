@@ -7,37 +7,23 @@ import ProtectedRoute from "../common/ProtectedRoute/ProtectedRoute"; // Import 
 
 import "../../../assets/styles/root-admin.css";
 import "./CommonDashbaordlayout.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import HeaderAdmin from "../common/HeaderAdmin/HeaderAdmin";
 
 // Destructure props to make sure we get `children` and `requiredPermissions`
 const CommonDashboardLayout = ({ children, requiredPermissions = [] }) => {
-  const [isSidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 768);
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
+    console.log("prev:", isSidebarOpen);
     setSidebarOpen((prev) => !prev);
   };
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setSidebarOpen(false); // Only force collapse when resizing down
-      } else {
-        setSidebarOpen(true);
-      }
-    };
-
-    handleResize(); // Set initial state on mount
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <div className="admin-layout">
       <HeaderAdmin toggleSidebar={toggleSidebar} />
       <div className="admin-content">
-        <Sidebar isOpen={isSidebarOpen} setSidebarOpen={setSidebarOpen} />
+        <Sidebar isOpen={isSidebarOpen} />
         <div className="admin-main-content">
           <ProtectedRoute requiredPermissions={requiredPermissions}>
             {children}

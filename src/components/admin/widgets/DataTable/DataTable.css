@@ -1,65 +1,110 @@
 .table-container {
   width: 100%;
   padding: 10px;
-  overflow-x: hidden; /* ✅ Strictly remove horizontal scrolling */
+  overflow-x: hidden; /* ✅ Prevent horizontal scroll */
+  display: flex;
+  flex-direction: column;
 }
 
-.datatable-search-input {
+.table-features {
+  padding: 0;
+  margin: 0;
   width: 100%;
+  height: 50px;
+  /* background-color: aqua; */
+}
+.datatable-search-input {
+  width: 250px;
   padding: 6px;
   margin-bottom: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 0.85rem;
+  display: block;
+  margin-left: auto;
+}
+
+.datatable-container {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  /* background-color: rgb(18, 22, 226); */
 }
 
 .datatable {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.85rem;
-  table-layout: auto; /* ✅ Allows ID column to adjust naturally */
+  table-layout: auto;
+  background-color: azure;
 }
 
 .datatable th,
 .datatable td {
   border: 1px solid #ddd;
-  padding: 5px 8px; /* ✅ Slight padding */
+  padding: 5px 8px;
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+.datatable td {
+  text-align: left;
+}
+
 .datatable th {
-  background-color: #f4f4f4;
+  background-color: #444343;
   cursor: pointer;
+  text-align: center;
+  color: #ccc;
+}
+
+.datatable th:last-child {
+  min-width: 100px;
+  max-width: 150px;
+}
+.datatable tbody tr td:last-child {
+  width: 130px;
 }
 
 .datatable th:hover {
   background-color: #ddd;
+  color: #444343;
 }
 
 /* ✅ Allow ID column to adjust based on content */
 .datatable td:first-child {
-  min-width: 40px; /* Ensures enough space for numbers */
-  max-width: 80px; /* Prevents it from being too wide */
+  min-width: 40px;
+  max-width: 80px;
   text-align: center;
 }
 
-/* ✅ Fixed width for Actions column */
-.actions-col {
-  width: 50px;
+.action-buttons {
+  width: 100%;
   text-align: center;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+/* ✅ Action buttons */
 .icon-btn {
   border: none;
   background: none;
   cursor: pointer;
-  font-size: 0.75rem;
-  margin: 0 3px;
-  display: inline-block;
+  font-size: 0.8em;
+  font-weight: 300;
+  margin: 0 2px;
+  padding: 3px;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: solid thin var(--primary-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon-btn.edit {
@@ -72,6 +117,12 @@
   color: black;
 }
 
+/* ✅ Remove Expand button if not needed */
+.icon-btn.expand:disabled {
+  visibility: hidden;
+}
+
+/* ✅ Link Styling */
 .row-link {
   color: #007bff;
   text-decoration: none;
@@ -83,24 +134,195 @@
   text-decoration: underline;
 }
 
+/* ✅ Expanded Row */
+.expand-row {
+  background-color: #f9f9f9;
+}
+
+.expand-content {
+  padding: 10px;
+}
+
+.expand-content table {
+  width: 100%;
+}
+
+.expand-content td {
+  padding: 5px;
+}
+
+/* ✅ Pagination */
 .pagination {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 6px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .pagination button {
-  padding: 3px 5px;
+  padding: 5px 8px;
   margin: 0 2px;
   border: 1px solid #ddd;
   background-color: #f4f4f4;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.pagination button.active {
+  background-color: #007bff;
+  color: white;
 }
 
 .pagination button:disabled {
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+/* ✅ Responsive Design */
+
+/* 📌 Max Width 768px */
+@media (max-width: 768px) {
+  .datatable-search-input {
+    width: 200px;
+  }
+
+  .datatable {
+    font-size: 0.8rem;
+  }
+
+  .datatable th,
+  .datatable td {
+    padding: 4px 6px;
+  }
+
+  .icon-btn {
+    width: 25px;
+    height: 25px;
+  }
+
+  .actions-col {
+    width: 110px;
+  }
+}
+
+/* 📌 Max Width 650px */
+@media (max-width: 650px) {
+  .datatable-search-input {
+    width: 180px;
+    font-size: 0.8rem;
+  }
+
+  .datatable th,
+  .datatable td {
+    padding: 4px;
+    font-size: 0.75rem;
+  }
+
+  .actions-col {
+    width: 100px;
+  }
+
+  .icon-btn {
+    font-size: 0.75em;
+  }
+}
+
+/* 📌 Max Width 550px */
+@media (max-width: 550px) {
+  .datatable-search-input {
+    width: 160px;
+    font-size: 0.75rem;
+  }
+
+  .datatable {
+    font-size: 0.75rem;
+  }
+
+  .datatable th,
+  .datatable td {
+    padding: 3px;
+  }
+
+  .actions-col {
+    width: 90px;
+  }
+
+  .icon-btn {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* 📌 Max Width 450px */
+@media (max-width: 450px) {
+  .datatable-search-input {
+    width: 140px;
+    font-size: 0.7rem;
+  }
+
+  .datatable {
+    font-size: 0.7rem;
+  }
+
+  .datatable th,
+  .datatable td {
+    padding: 2px;
+  }
+
+  .actions-col {
+    width: 80px;
+  }
+
+  .icon-btn {
+    font-size: 0.7em;
+    width: 20px;
+    height: 20px;
+  }
+
+  .pagination {
+    font-size: 0.8rem;
+  }
+
+  .pagination button {
+    padding: 4px 6px;
+    font-size: 0.8rem;
+  }
+}
+
+/* 📌 Max Width 350px */
+@media (max-width: 350px) {
+  .datatable-search-input {
+    width: 120px;
+    font-size: 0.65rem;
+    padding: 4px;
+  }
+
+  .datatable {
+    font-size: 0.65rem;
+  }
+
+  .datatable th,
+  .datatable td {
+    padding: 2px;
+  }
+
+  .actions-col {
+    width: 70px;
+  }
+
+  .icon-btn {
+    font-size: 0.65em;
+    width: 18px;
+    height: 18px;
+  }
+
+  .pagination {
+    font-size: 0.75rem;
+  }
+
+  .pagination button {
+    padding: 3px 5px;
+    font-size: 0.75rem;
+  }
 }

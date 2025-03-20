@@ -63,15 +63,7 @@ export const permissions = [
     updated: "2025-01-01",
     user_id: 1,
   },
-  {
-    id: 7,
-    permission: "VIEW_SUBSCRIPTIONS",
-    type: 1,
-    parent: 6,
-    description: "View subscritpions",
-    updated: "2025-01-01",
-    user_id: 1,
-  },
+
   {
     id: 8,
     permission: "VIEW_SETTINGS",
@@ -82,7 +74,16 @@ export const permissions = [
     user_id: 1,
   },
   {
-    id: 5,
+    id: 9,
+    permission: "VIEW_SUBSCRIPTIONS",
+    type: 1,
+    parent: 6,
+    description: "View subscritpions",
+    updated: "2025-01-01",
+    user_id: 1,
+  },
+  {
+    id: 10,
     permission: "VIEW_DEV_SETTINGS",
     type: 1,
     parent: null,
@@ -91,7 +92,7 @@ export const permissions = [
     user_id: 1,
   },
   {
-    id: 6,
+    id: 11,
     permission: "VIEW_PERMISSIONS",
     type: 2,
     parent: 5,
@@ -100,7 +101,7 @@ export const permissions = [
     user_id: 2,
   },
   {
-    id: 7,
+    id: 12,
     permission: "VIEW_STYLES",
     type: 2,
     parent: 5,
@@ -109,7 +110,7 @@ export const permissions = [
     user_id: 3,
   },
   {
-    id: 8,
+    id: 13,
     permission: "VIEW_PREFERENCES",
     type: 2,
     parent: 5,
@@ -118,7 +119,7 @@ export const permissions = [
     user_id: 4,
   },
   {
-    id: 9,
+    id: 14,
     permission: "ADD_PERMISSION",
     type: 3,
     parent: 5,
@@ -127,7 +128,7 @@ export const permissions = [
     user_id: 5,
   },
   {
-    id: 10,
+    id: 15,
     permission: "REMOVE_PERMISSION",
     type: 3,
     parent: 6,
@@ -137,7 +138,7 @@ export const permissions = [
   },
 
   {
-    id: 12,
+    id: 16,
     permission: "THEMES",
     type: 3,
     parent: 5,
@@ -146,7 +147,7 @@ export const permissions = [
     user_id: 8,
   },
   {
-    id: 13,
+    id: 17,
     permission: "PREFERENCES",
     type: 3,
     parent: 5,

@@ -1,6 +1,6 @@
-// import React from "react";
 import Datatable from "../../../../components/admin/widgets/DataTable/DataTable"; // Import reusable table
 import useWebTitle from "../../../../hooks/useWebTitle";
+import { permissions } from "../../../../datas/DataPermissions"; // Import permissions data
 
 // Define column structure
 const columns = [
@@ -15,7 +15,7 @@ const columns = [
     sortable: true,
   },
   {
-    key: "name",
+    key: "permission",
     label: "Permission Name",
     G768: true,
     L768: true,
@@ -25,8 +25,8 @@ const columns = [
     sortable: true,
   },
   {
-    key: "created",
-    label: "Created",
+    key: "updated",
+    label: "Updated Date",
     G768: true,
     L768: false,
     L650: false,
@@ -35,8 +35,8 @@ const columns = [
     sortable: true,
   },
   {
-    key: "status",
-    label: "Status",
+    key: "user_id",
+    label: "User ID",
     G768: true,
     L768: true,
     L650: false,
@@ -56,37 +56,12 @@ const columns = [
   },
 ];
 
-// Sample data
-const data = [
-  {
-    id: 1,
-    name: "Admin Access",
-    created: "2024-02-20",
-    status: "Active",
-    description: "Full access to system",
-  },
-  {
-    id: 2,
-    name: "Editor Access",
-    created: "2024-02-18",
-    status: "Inactive",
-    description: "Can edit content",
-  },
-  {
-    id: 3,
-    name: "Viewer Access",
-    created: "2024-02-15",
-    status: "Active",
-    description: "Can only view content",
-  },
-];
-
 const DevPermission = () => {
-  useWebTitle("Permisisons");
+  useWebTitle("Permissions");
   return (
     <div>
       <h2>Permissions</h2>
-      <Datatable columns={columns} data={data} />
+      <Datatable columns={columns} data={permissions} />
     </div>
   );
 };

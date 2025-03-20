@@ -30,17 +30,15 @@
 
 /* Default Layout: Desktop (>768px) */
 .left-section {
-  width: 25%;
+  width: 21%;
 }
 
 .middle-section {
-  /* background: #3498db; */
   flex-grow: 1;
 }
 
 .right-section {
-  width: 20%;
-  /* background: #f39d1213; */
+  width: 24%;
 }
 
 /* Containers inside each section */
@@ -50,14 +48,11 @@
   width: 100%;
   padding: 0px;
   display: flex;
-  /* background: rgba(255, 255, 255, 0.2); */
   border-radius: 5px;
   min-height: 50px;
   align-items: center;
   padding: 0;
 }
-
-/* Background Colors */
 
 /* ***** Left Section  */
 .logo-admin-container {
@@ -76,7 +71,7 @@
   padding: 5px 10px;
   width: 50px;
   height: 50px;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 }
@@ -86,6 +81,7 @@
   display: flex;
   align-items: center;
   gap: 0px;
+  padding-left: 10px;
 }
 
 /* Logo Image */
@@ -108,8 +104,9 @@
 .logo-admin-title {
   font-weight: bold;
   font-size: 18px;
-  /* text-transform: uppercase; */
   color: var(--logo-admin-title-color);
+  position: absolute;
+  top: -15px;
 }
 
 /* Special Styling for 'S' */
@@ -119,7 +116,7 @@
 
 /* Tagline */
 .logo-admin-tagline {
-  font-size: 10px;
+  font-size: 7px;
   background-image: linear-gradient(
     90deg,
     rgba(213, 108, 80, 1) 0%,
@@ -128,12 +125,10 @@
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  position: relative;
-  top: -5px;
-  left: 0px;
+  position: absolute;
+  top: -20px;
+  left: 25px;
 }
-/* ------------------------ */
-
 /* ******* Middle Section */
 .searchbar-container {
   display: flex;
@@ -162,8 +157,6 @@
   outline: none;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
 }
 
 /* Remove right border to merge with button */
@@ -228,16 +221,95 @@
   width: 100%;
 }
 
-/* --------------------------- */
-
 /* ******* Right Section */
 .profile-container {
-  background: rgba(102, 102, 102, 0.2);
+  position: relative;
+  display: flex;
+  align-items: center;
   justify-content: right;
-  padding: 10px 20px;
+  column-gap: 10px;
+  cursor: pointer;
 }
 
-/* --------------------------- */
+/* Profile Name */
+.profile-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* Profile Icon */
+.profile-icon {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  padding: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.profile-icon:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  width: 160px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+  z-index: 100;
+}
+
+.profile-container:hover .profile-dropdown,
+.profile-container:focus-within .profile-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.profile-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-dropdown li {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e6e6e6;
+  transition: background-color 0.2s;
+}
+
+.profile-dropdown li:last-child {
+  border-bottom: none;
+}
+
+.profile-dropdown li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  transition: color 0.2s;
+}
+
+.profile-dropdown li:hover {
+  background: #f7f7f7;
+}
+
+.profile-dropdown li a:hover {
+  color: #007bff;
+}
 
 /* Responsive: Move Middle Section to Second Row & Equalize Left & Right */
 @media (max-width: 768px) {
@@ -247,49 +319,20 @@
 
   .left-section,
   .right-section {
-    width: 50%; /* Equal width for small screens */
+    width: 50%;
     text-align: center;
   }
 
-  .middle-section {
-    width: 100%; /* Takes full width */
-    order: 1; /* Moves to second row */
-  }
-}
-
-/* Responsive Left Section */
-@media (max-width: 768px) {
-  .logo-admin {
-    gap: 5px;
+  .menu-toggle {
+    display: flex;
   }
 
-  .logo-admin-image {
-    height: 30px;
-  }
-
-  .logo-admin-title {
-    font-size: 16px;
-  }
-
-  .logo-admin-subtitle {
-    font-size: 16px;
-  }
-
-  .logo-admin-tagline {
-    font-size: 10px;
-  }
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
   .middle-section {
     width: 100%;
     order: 1;
   }
-}
 
-@media (max-width: 650px) {
-  .searchbar-container {
-    max-width: 100%;
+  .profile-name {
+    font-size: 10px;
   }
 }
