@@ -1,9 +1,10 @@
 import "./HeaderAdmin.css";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { FaBars, FaSearch, FaUser } from "react-icons/fa";
 import logoAdmin from "../../../../assets/images/client/basic/logo-small.png";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../../context/AuthContext";
 
 const HeaderAdmin = ({ toggleSidebar, toggleButtonRef }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -14,6 +15,7 @@ const HeaderAdmin = ({ toggleSidebar, toggleButtonRef }) => {
   const searchRef = useRef(null);
   const profileRef = useRef(null);
   const navigate = useNavigate();
+  const { logout } = useContext(AuthContext);
 
   const allResults = [
     "Dashboard",
@@ -27,6 +29,11 @@ const HeaderAdmin = ({ toggleSidebar, toggleButtonRef }) => {
     "Analytics",
     "API Access",
   ];
+
+  const handleLogout = () => {
+    logout(); // Call logout function from context
+    navigate("/admin"); // Redirect after logout
+  };
 
   const handleSearchChange = (e) => {
     const query = e.target.value;
@@ -164,7 +171,7 @@ const HeaderAdmin = ({ toggleSidebar, toggleButtonRef }) => {
                     <a href="/settings">Settings</a>
                   </li>
                   <li>
-                    <a href="/logout">Logout</a>
+                    <a onClick={handleLogout}>Logout</a>
                   </li>
                 </ul>
               </div>

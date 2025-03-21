@@ -1,14 +1,44 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { sidebarLinks } from "../../../../datas/DataLinks";
 import * as Icons from "react-icons/fa";
 import "./Sidebar.css";
 import PropTypes from "prop-types";
+import { AuthContext } from "../../../../context/AuthContext";
 
 const Sidebar = ({ isOpen, setIsOpen, toggleButtonRef }) => {
+  const { currentUser } = useContext(AuthContext); // Get current user
   const location = useLocation();
   const [openMenu, setOpenMenu] = useState(null);
   const sidebarRef = useRef(null);
+  // ------------------------------------------------------------
+
+  // Function to check if the user has a specific permission
+  const hasPermission = (permission) =>
+    currentUser?.permissions.includes(permission);
+
+  // Filter sidebar items based on user permissions
+  const filteredSidebarLinks = sidebarLinks
+    .map((section) => ({
+      ...section,
+      items: section.items
+        .map((item) => {
+          if (item.submenu) {
+            const filteredSubmenu = item.submenu.filter((subItem) =>
+              hasPermission(subItem.permission)
+            );
+            return filteredSubmenu.length > 0
+              ? { ...item, submenu: filteredSubmenu }
+              : null;
+          } else {
+            return hasPermission(item.permission) ? item : null;
+          }
+        })
+        .filter(Boolean), // Remove null values (items with no allowed sub-links)
+    }))
+    .filter((section) => section.items.length > 0); // Remove empty sections
+
+  //  ------------------------------------------------------------
 
   // Function to toggle submenus
   const toggleSubmenu = (index) => {
@@ -49,7 +79,7 @@ const Sidebar = ({ isOpen, setIsOpen, toggleButtonRef }) => {
   return (
     <aside ref={sidebarRef} className={`sidebar ${isOpen ? "" : "collapsed"}`}>
       <nav className="sidebar-nav">
-        {sidebarLinks.map((section, sectionIdx) => (
+        {filteredSidebarLinks.map((section, sectionIdx) => (
           <div key={sectionIdx} className="sidebar-section">
             {section.section.toLowerCase() !== "main" && (
               <div className="sidebar-section-title">{section.section}</div>
