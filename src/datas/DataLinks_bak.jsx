@@ -1,3 +1,5 @@
+// src/datas/DataLinks.jsx
+
 export const sidebarLinks = [
   {
     section: "Main",
@@ -113,87 +115,6 @@ export const sidebarLinks = [
             permission: "LIST_EMPLOYEE",
           },
         ],
-      },
-    ],
-  },
-  {
-    section: "Project Management",
-    items: [
-      {
-        label: "Projects",
-        icon: "FaProjectDiagram",
-        path: "#",
-        permission: "VIEW_PROJECTS",
-        submenu: [
-          {
-            label: "Active Projects",
-            path: "/admin/projects/active",
-            permission: "VIEW_ACTIVE_PROJECTS",
-          },
-          {
-            label: "Completed Projects",
-            path: "/admin/projects/completed",
-            permission: "VIEW_COMPLETED_PROJECTS",
-          },
-          {
-            label: "Archived Projects",
-            path: "/admin/projects/archived",
-            permission: "VIEW_ARCHIVED_PROJECTS",
-          },
-          {
-            label: "Add New Project",
-            path: "/admin/projects/add",
-            permission: "ADD_PROJECT",
-          },
-        ],
-      },
-      {
-        label: "Timeline & Tasks",
-        icon: "FaTasks",
-        path: "#",
-        permission: "VIEW_TIMELINE_TASKS",
-        submenu: [
-          {
-            label: "Milestones",
-            path: "/admin/projects/milestones",
-            permission: "VIEW_MILESTONES",
-          },
-          {
-            label: "Task Assignments",
-            path: "/admin/projects/tasks",
-            permission: "VIEW_TASKS",
-          },
-        ],
-      },
-      {
-        label: "Team & Roles",
-        icon: "FaUsersCog",
-        path: "/admin/projects/team",
-        permission: "VIEW_TEAM_ROLES",
-      },
-      {
-        label: "Documents",
-        icon: "FaFileAlt",
-        path: "/admin/projects/documents",
-        permission: "VIEW_DOCUMENTS",
-      },
-      {
-        label: "Client Communication",
-        icon: "FaComments",
-        path: "/admin/projects/communication",
-        permission: "VIEW_CLIENT_COMMUNICATION",
-      },
-      {
-        label: "Billing & Payments",
-        icon: "FaMoneyCheckAlt",
-        path: "/admin/projects/billing",
-        permission: "VIEW_BILLING_PAYMENTS",
-      },
-      {
-        label: "Reports & Analytics",
-        icon: "FaChartLine",
-        path: "/admin/projects/reports",
-        permission: "VIEW_REPORTS_ANALYTICS",
       },
     ],
   },

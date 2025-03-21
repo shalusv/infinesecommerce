@@ -5,7 +5,7 @@ import logoAdmin from "../../../../assets/images/client/basic/logo-small.png";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
-const HeaderAdmin = ({ toggleSidebar }) => {
+const HeaderAdmin = ({ toggleSidebar, toggleButtonRef }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
@@ -82,7 +82,11 @@ const HeaderAdmin = ({ toggleSidebar }) => {
       <div className="top-header">
         <div className="left-section">
           <div className="logo-admin-container">
-            <button className="menu-toggle" onClick={toggleSidebar}>
+            <button
+              ref={toggleButtonRef}
+              className="menu-toggle"
+              onClick={toggleSidebar}
+            >
               <FaBars />
             </button>
             <div className="logo-admin">
@@ -174,6 +178,7 @@ const HeaderAdmin = ({ toggleSidebar }) => {
 
 HeaderAdmin.propTypes = {
   toggleSidebar: PropTypes.func.isRequired,
+  toggleButtonRef: PropTypes.object.isRequired,
 };
 
 export default HeaderAdmin;

@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { sidebarLinks } from "../../../../datas/DataLinks";
 import * as Icons from "react-icons/fa";
 import "./Sidebar.css";
 import PropTypes from "prop-types";
 
-const Sidebar = ({ isOpen }) => {
+const Sidebar = ({ isOpen, setIsOpen, toggleButtonRef }) => {
   const location = useLocation();
   const [openMenu, setOpenMenu] = useState(null);
+  const sidebarRef = useRef(null);
 
   // Function to toggle submenus
   const toggleSubmenu = (index) => {
@@ -16,11 +17,37 @@ const Sidebar = ({ isOpen }) => {
 
   // Function to handle regular link clicks (without submenu)
   const handleLinkClick = () => {
-    setOpenMenu(null); // Close any open submenu when a non-submenu link is clicked
+    setOpenMenu(null);
+    if (window.innerWidth <= 768) {
+      setIsOpen(false); // Close sidebar
+    }
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const sidebarElement = sidebarRef.current;
+      const toggleButton = toggleButtonRef?.current;
+
+      // ✅ Check if clicked outside both sidebar & toggle button
+      if (
+        sidebarElement &&
+        !sidebarElement.contains(event.target) &&
+        toggleButton &&
+        !toggleButton.contains(event.target)
+      ) {
+        if (window.innerWidth <= 768) {
+          setIsOpen(false);
+        }
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [setIsOpen, toggleButtonRef]);
   return (
-    <aside className={`sidebar ${isOpen ? "" : "collapsed"}`}>
+    <aside ref={sidebarRef} className={`sidebar ${isOpen ? "" : "collapsed"}`}>
       <nav className="sidebar-nav">
         {sidebarLinks.map((section, sectionIdx) => (
           <div key={sectionIdx} className="sidebar-section">
@@ -102,6 +129,8 @@ const Sidebar = ({ isOpen }) => {
 
 Sidebar.propTypes = {
   isOpen: PropTypes.bool.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
+  toggleButtonRef: PropTypes.object.isRequired,
 };
 
 export default Sidebar;
