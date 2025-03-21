@@ -7,7 +7,7 @@ import ProtectedRoute from "../common/ProtectedRoute/ProtectedRoute"; // Import 
 
 import "../../../assets/styles/root-admin.css";
 import "./CommonDashbaordlayout.css";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import HeaderAdmin from "../common/HeaderAdmin/HeaderAdmin";
 
 // Destructure props to make sure we get `children` and `requiredPermissions`
@@ -15,8 +15,22 @@ const CommonDashboardLayout = ({ children, requiredPermissions = [] }) => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const toggleButtonRef = useRef(null); // ✅ Store toggle button ref
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setSidebarOpen(false); // 🔥 Collapse sidebar on mobile view
+      } else {
+        setSidebarOpen(true); // 🔥 Open sidebar on larger screens
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // 🔥 Call once to set initial state based on screen size
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const toggleSidebar = () => {
-    console.log("prev:", isSidebarOpen);
     setSidebarOpen((prev) => !prev);
   };
 
